@@ -1,0 +1,47 @@
+svg {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  background-color: grey;
+  padding-top: 50px;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.axis text{
+    font: Times;
+    font-size: 12px;
+    font-weight: bold;
+    transform: rotate(-60);
+}
+
+body{
+    background-color:grey;
+  }
+ 
+.legend {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size:15px;;
+    }
+
+    nav-tabs{
+      padding-right:20px;  
+
+    }
+    
+
+/*.axis {
+  font: 10px sans-serif;
+  font-size: 10px;
+}
+
+.axis path,
+.axis line {
+  fill:none;
+  stroke: black;
+}*/

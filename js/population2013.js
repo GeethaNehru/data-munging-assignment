@@ -1,4 +1,4 @@
-var margin = {top: 150, right: 50, bottom: 100, left:100},
+var margin = {top: 150, right: 50, bottom: 100, left:150},
     width = 1500 - margin.right - margin.left,
     height = 700 - margin.top - margin.bottom;
 
@@ -86,7 +86,8 @@ d3.json("../output/population13.json", function(data) {
         .selectAll("text")
         .attr("transform", "rotate(-60)" )
         .style("text-anchor", "end")
-        .attr("font-size", "10px");
+        .attr("font-size", "20px");
+        
 
 
     // Draw yAxis and position the label
@@ -98,5 +99,6 @@ d3.json("../output/population13.json", function(data) {
         .attr("x", -height/2)
         .attr("dy", "-5em")
         .style("text-anchor", "middle")
+        .style("fill","white")
         .text("In Millions");
 });

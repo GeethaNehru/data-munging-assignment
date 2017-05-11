@@ -1,4 +1,4 @@
-var margin = {top: 50, right: 10, bottom: 100, left:100},
+var margin = {top: 50, right: 10, bottom: 100, left:150},
     width = 1500 - margin.right - margin.left,
     height = 700 - margin.top - margin.bottom;
 
@@ -98,5 +98,6 @@ d3.json("../output/gdp13.json", function(data) {
         .attr("x", -height/2)
         .attr("dy", "-5em")
         .style("text-anchor", "middle")
+        .style("fill","white")
         .text("Billions US $");
 });

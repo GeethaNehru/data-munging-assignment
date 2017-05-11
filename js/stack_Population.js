@@ -1,6 +1,6 @@
- var margin={top:40, bottom:100, left:100, right:150},
+ var margin={top:40, bottom:200, left:150, right:150},
     width=1500-margin.left-margin.right,
-    height=600-margin.top-margin.bottom;
+    height=700-margin.top-margin.bottom;
 
   var horizontal=d3.scale.ordinal().rangeRoundBands([0,width],0.10),
     vertical=d3.scale.linear().rangeRound([height,0]);
@@ -100,6 +100,7 @@
         .attr("x", -height/2)
         .attr("dy", "-5em")
         .style("text-anchor", "middle")
+        .style("fill","white")
         .text("In Millions");
        
          var legend = svg.selectAll(".legend")

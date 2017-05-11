@@ -1,11 +1,11 @@
-var margin = {top: 50, right: 10, bottom: 100, left:70},
-    width = 700 - margin.right - margin.left,
+var margin = {top: 50, right: 10, bottom: 100, left:150},
+    width = 1500 - margin.right - margin.left,
     height = 700 - margin.top - margin.bottom;
 
 
 var svg = d3.select("body")
     .append("svg")
-    .attr ({
+      .attr ({
         "width": width + margin.right + margin.left,
         "height": height + margin.top + margin.bottom
       })
@@ -36,7 +36,7 @@ d3.json("../output/aggregate.json", function(data) {
   data.forEach(function(d) {
     d.CONTINENT = d.CONTINENT;
     d.POPULATION = +d.POPULATION;       
-    console.log(d.POPULATION);  
+    console.log(d.POPULATION);   
   });
 
 
@@ -44,21 +44,20 @@ d3.json("../output/aggregate.json", function(data) {
   xScale.domain(data.map(function(d) { return d.CONTINENT; }) );
   yScale.domain([0, d3.max(data, function(d) { return d.POPULATION; } ) ]);
 
-        svg.selectAll('rect')
-            .data(data)
-            .enter()
-            .append('rect')
-            .attr("height", 0)
-            .attr("y", height)
-            .transition().duration(800)
-            .delay( function(d,i) { return i * 200; })
-            .attr({
-              "x": function(d) { return xScale(d.CONTINENT); },
-              "y": function(d) { return yScale(d.POPULATION); },
-              "width": xScale.rangeBand(),
-              "height": function(d) { return  height - yScale(d.POPULATION); }
-            })
-
+  svg.selectAll('rect')
+    .data(data)
+    .enter()
+    .append('rect')
+    .attr("height", 0)
+    .attr("y", height)
+    .transition().duration(800)
+    .delay( function(d,i) { return i * 200; })
+    .attr({
+      "x": function(d) { return xScale(d.CONTINENT); },
+      "y": function(d) { return yScale(d.POPULATION); },
+      "width": xScale.rangeBand(),
+      "height": function(d) { return  height - yScale(d.POPULATION); }
+    })
     .style("fill", function(d,i) { return 'rgb(100, 10, ' + ((i * 10) + 25) + ')'});
 
 
@@ -99,5 +98,6 @@ d3.json("../output/aggregate.json", function(data) {
         .attr("x", -height/2)
         .attr("dy", "-5em")
         .style("text-anchor", "middle")
+        .style("fill","white")
         .text("Billions US$");
 });

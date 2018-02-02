@@ -1,11 +1,11 @@
- var margin={top:40, bottom:200, left:150, right:150},
+var margin={top:40, bottom:200, left:150, right:150},
     width=1500-margin.left-margin.right,
     height=700-margin.top-margin.bottom;
 
   var horizontal=d3.scale.ordinal().rangeRoundBands([0,width],0.10),
     vertical=d3.scale.linear().rangeRound([height,0]);
 
-  var color = d3.scale.ordinal().range(["#383535","#575050","#B0A9A9", "#F2E6E6"]);
+  var color = d3.scale.ordinal().range(["#383535","#575050","#B0A9A9"]);
 
   var xAxis=d3.svg.axis()
     .scale(horizontal)
@@ -25,18 +25,17 @@
 
   d3.json("../output/population-purchase.json",function(data){
   data.forEach(function(d){
-    d.Country=d.Country;
-    d.Population_2010=d.Population_2010;
-    d.Population_2011=d.Population_2011;
-    d.Population_2012=d.Population_2012;
-    d.Population_2013=d.Population_2013;     
+    d.Quarters=d.Quarters;
+    d.Value1=d.Value1;
+    d.Value2=d.Value2;
+    d.Value3=d.Value3;    
     
 
   });
-  var xData=["Population_2010","Population_2011","Population_2012","Population_2013"];
+  var xData=["Value1","Value2","Value3"];
   var dataIntermediate = xData.map(function (c) {
         return data.map(function (d) {
-            return {x: d.Country, y: d[c]};
+            return {x: d.Quarters, y: d[c]};
         });
     });
   var dataStackLayout = d3.layout.stack()(dataIntermediate);
